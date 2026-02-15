@@ -1,8 +1,44 @@
-import { themes as prismThemes } from 'prism-react-renderer';
+import { themes as prismThemes, PrismTheme } from 'prism-react-renderer';
 import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
+
+// Minilux light theme
+const miniluxLight: PrismTheme = {
+  plain: {
+    color: "#464654",
+    backgroundColor: "#f7f6f3",
+  },
+  styles: [
+    { types: ["comment"], style: { color: "#8c8c9e", fontStyle: "italic" } },
+    { types: ["string"], style: { color: "#4f9850" } },
+    { types: ["keyword"], style: { color: "#c14c7c", fontWeight: "bold" } },
+    { types: ["function", "builtin"], style: { color: "#3d73cb" } },
+    { types: ["variable"], style: { color: "#b66e2c" } },
+    { types: ["number"], style: { color: "#8152b6" } },
+    { types: ["operator"], style: { color: "#b06d81" } },
+    { types: ["punctuation"], style: { color: "#9a9aa8" } },
+  ],
+};
+
+// Custom Minilux dark theme (soft pastels on deep charcoal)
+const miniluxDark: PrismTheme = {
+  plain: {
+    color: "#d5d3d0",
+    backgroundColor: "#1e1e28",
+  },
+  styles: [
+    { types: ["comment"], style: { color: "#7a7a96", fontStyle: "italic" } },
+    { types: ["string"], style: { color: "#aadd8d" } },
+    { types: ["keyword"], style: { color: "#e592b3", fontWeight: "bold" } },
+    { types: ["function", "builtin"], style: { color: "#85aef0" } },
+    { types: ["variable"], style: { color: "#e8b886" } },
+    { types: ["number"], style: { color: "#c6a6ee" } },
+    { types: ["operator"], style: { color: "#e1a7b8" } },
+    { types: ["punctuation"], style: { color: "#8b8b9f" } },
+  ],
+};
 
 const config: Config = {
   title: 'Minilux',
@@ -122,8 +158,8 @@ const config: Config = {
       copyright: `Copyright © ${new Date().getFullYear()} Alexia Michelle.`,
     },
     prism: {
-      theme: prismThemes.github,
-      darkTheme: prismThemes.dracula,
+      theme: miniluxLight,
+      darkTheme: miniluxDark,
     },
   } satisfies Preset.ThemeConfig,
 };
